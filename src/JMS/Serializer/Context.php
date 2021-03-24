@@ -222,6 +222,10 @@ abstract class Context
 
     public function pushClassMetadata(ClassMetadata $metadata)
     {
+        if (!$this->metadataStack) {
+            $this->metadataStack = new \SplStack();
+        }
+
         $this->metadataStack->push($metadata);
     }
 
